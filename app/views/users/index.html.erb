@@ -1,0 +1,30 @@
+<h2>Users</h2>
+<table>
+  <thead>
+    <tr>
+      <th>
+      Name
+      </th>
+      <th>
+      Phone Number
+      </th>
+      <th>
+      Email Address
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.first_name + " " + user.last_name %></td>
+      <td><%= user.phone %></td>
+      <td><%= user.email %></td>
+      <td><%= link_to 'Edit', edit_user_path(user) %></td>
+      <td><%= link_to 'Show', user_path(user) %></td>
+      <td><%= link_to 'Destroy', user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= link_to 'Create a New User', new_user_path %>
