@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
+
     if @user.save
       flash.notice = "Congratulations! A new account has been created"
       redirect_to @user
@@ -50,7 +51,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :phone, :email)
+    params.require(:user).permit(:first_name, :last_name, :phone)
   end
 
 end
